@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=Cookie
+comment0.text=\r\n\ Convert\ a\ web\ browser\ cookie\ specification\ to\ a\ JSONObject\ and\ back.\r\n\ JSON\ and\ Cookies\ are\ both\ notations\ for\ name/value\ pairs.\r\n\ @author\ JSON.org\r\n\ @version\ 2015-12-09\r\n
+comment1.params=string
+comment1.target=java.lang.String\ escape(java.lang.String)
+comment1.text=\r\n\ Produce\ a\ copy\ of\ a\ string\ in\ which\ the\ characters\ '+',\ '%',\ '\=',\ ';'\r\n\ and\ control\ characters\ are\ replaced\ with\ "%hh".\ This\ is\ a\ gentle\ form\r\n\ of\ URL\ encoding,\ attempting\ to\ cause\ as\ little\ distortion\ to\ the\r\n\ string\ as\ possible.\ The\ characters\ '\='\ and\ ';'\ are\ meta\ characters\ in\r\n\ cookies.\ By\ convention,\ they\ are\ escaped\ using\ the\ URL-encoding.\ This\ is\r\n\ only\ a\ convention,\ not\ a\ standard.\ Often,\ cookies\ are\ expected\ to\ have\r\n\ encoded\ values.\ We\ encode\ '\='\ and\ ';'\ because\ we\ must.\ We\ encode\ '%'\ and\r\n\ '+'\ because\ they\ are\ meta\ characters\ in\ URL\ encoding.\r\n\ @param\ string\ The\ source\ string.\r\n\ @return\ \ \ \ \ \ \ The\ escaped\ result.\r\n
+comment2.params=string
+comment2.target=JSONObject\ toJSONObject(java.lang.String)
+comment2.text=\r\n\ Convert\ a\ cookie\ specification\ string\ into\ a\ JSONObject.\ The\ string\r\n\ will\ contain\ a\ name\ value\ pair\ separated\ by\ '\='.\ The\ name\ and\ the\ value\r\n\ will\ be\ unescaped,\ possibly\ converting\ '+'\ and\ '%'\ sequences.\ The\r\n\ cookie\ properties\ may\ follow,\ separated\ by\ ';',\ also\ represented\ as\r\n\ name\=value\ (except\ the\ secure\ property,\ which\ does\ not\ have\ a\ value).\r\n\ The\ name\ will\ be\ stored\ under\ the\ key\ "name",\ and\ the\ value\ will\ be\r\n\ stored\ under\ the\ key\ "value".\ This\ method\ does\ not\ do\ checking\ or\r\n\ validation\ of\ the\ parameters.\ It\ only\ converts\ the\ cookie\ string\ into\r\n\ a\ JSONObject.\r\n\ @param\ string\ The\ cookie\ specification\ string.\r\n\ @return\ A\ JSONObject\ containing\ "name",\ "value",\ and\ possibly\ other\r\n\ \ members.\r\n\ @throws\ JSONException\r\n
+comment3.params=jo
+comment3.target=java.lang.String\ toString(JSONObject)
+comment3.text=\r\n\ Convert\ a\ JSONObject\ into\ a\ cookie\ specification\ string.\ The\ JSONObject\r\n\ must\ contain\ "name"\ and\ "value"\ members.\r\n\ If\ the\ JSONObject\ contains\ "expires",\ "domain",\ "path",\ or\ "secure"\r\n\ members,\ they\ will\ be\ appended\ to\ the\ cookie\ specification\ string.\r\n\ All\ other\ members\ are\ ignored.\r\n\ @param\ jo\ A\ JSONObject\r\n\ @return\ A\ cookie\ specification\ string\r\n\ @throws\ JSONException\r\n
+comment4.params=string
+comment4.target=java.lang.String\ unescape(java.lang.String)
+comment4.text=\r\n\ Convert\ <code>%</code><i>hh</i>\ sequences\ to\ single\ characters,\ and\r\n\ convert\ plus\ to\ space.\r\n\ @param\ string\ A\ string\ that\ may\ contain\r\n\ \ \ \ \ \ <code>+</code>&nbsp;<small>(plus)</small>\ and\r\n\ \ \ \ \ \ <code>%</code><i>hh</i>\ sequences.\r\n\ @return\ The\ unescaped\ string.\r\n
+numComments=5

@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=BotsGui
+comment1.params=
+comment1.target=BotsGui()
+comment2.params=e
+comment2.target=void\ actionPerformed(java.awt.event.ActionEvent)
+comment3.params=e
+comment3.target=void\ actionPerformed(java.awt.event.ActionEvent)
+comment4.params=e
+comment4.target=void\ actionPerformed(java.awt.event.ActionEvent)
+comment5.params=
+comment5.target=void\ redirectSystemStreams()
+comment6.params=b
+comment6.target=void\ write(int)
+comment7.params=response
+comment7.target=void\ showJsonResponse(java.lang.String)
+comment8.params=response
+comment8.target=void\ displayJsonResponseLikes(java.lang.String)
+comment9.params=args
+comment9.target=void\ main(java.lang.String[])
+numComments=10

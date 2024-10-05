@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.target=SocialBot
+comment1.params=
+comment1.target=SocialBot()
+comment1.text=\n\ Adresse\:\ https\://socialbotnet-ajvb.onrender.com\n\ us\n
+comment10.params=nachricht
+comment10.target=void\ botsPosten(java.lang.String)
+comment2.params=usernameNeu\ passwordNeu
+comment2.target=SocialBot(java.lang.String,\ java.lang.String)
+comment3.params=neuerHashTag
+comment3.target=void\ hashTagLiken(java.lang.String)
+comment4.params=nachricht
+comment4.target=void\ posten(java.lang.String)
+comment5.params=user
+comment5.target=void\ postsVonNutzer(java.lang.String)
+comment6.params=n
+comment6.target=void\ armeeErzeugen(int)
+comment7.params=username
+comment7.target=void\ allePostsEinesNutzersLiken(java.lang.String)
+comment8.params=postid
+comment8.target=void\ liken(int)
+comment9.params=postid
+comment9.target=void\ likenNutzer(int)
+numComments=11

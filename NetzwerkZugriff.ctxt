@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=NetzwerkZugriff
+comment1.params=domainName
+comment1.target=NetzwerkZugriff(java.lang.String)
+comment2.params=schluessel\ daten
+comment2.target=void\ POSTAnfrageVorbereiten(java.lang.String,\ java.lang.Object)
+comment2.text=\n\ Setzt\ Daten,\ die\ bei\ der\ n\u00E4chsten\ POST-Anfrage\ gesendet\ werden\ sollen.\n\ @param\ schluessel\ Der\ Parametername,\ der\ gesetzt\ werden\ soll\n\ @param\ daten\ Die\ Parameterdaten,\ die\ sp\u00E4ter\ gesendet\ werden\ sollen\n
+comment3.params=url
+comment3.target=void\ POSTAnfrageSenden(java.lang.String)
+comment3.text=\n\ Sendet\ die\ POST-Anfrage\ an\ die\ angegebene\ Adresse\ an\ den\ verbundenen\ Server.\ \n\ Die\ Daten\ m\u00FCssen\ vorher\ mit\ POSTAnfrageVorbereiten\ gesetzt\ werden.\n\ @param\ url\ Die\ relative\ Adresse\ auf\ dem\ Server,\ an\ die\ die\ Anfrage\ geschickt\ werden\ soll\n
+comment4.params=url
+comment4.target=java.lang.String\ GETAnfrageSenden(java.lang.String)
+comment4.text=\n\ Sendet\ die\ GET-Anfrage\ an\ die\ angegebene\ Adresse\ an\ den\ verbundenen\ Server.\n\ Parameter\ k\u00F6nnen\ mit\ ?\ angeh\u00E4ngt\ werden.\ Bei\ mehreren\ Parametern\ m\u00FCssen\ diese\ durch\ &\ verbunden\ werden.\n\ Beispiel\:\ /api/posts?sortby\=likes&limit\=5\ \n\ @param\ url\ Die\ relative\ Adresse\ auf\ dem\ Server,\ an\ die\ die\ Anfrage\ geschickt\ werden\ soll\n
+comment5.params=verbindung
+comment5.target=java.lang.String\ antwortLesen(java.net.HttpURLConnection)
+numComments=6

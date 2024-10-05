@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Bots
+comment1.params=
+comment1.target=Bots()
+comment2.params=
+comment2.target=java.lang.String\ neuesPasswortErzeugen()
+comment3.params=
+comment3.target=java.lang.String\ neuenNutzerNamenErzeugen()
+comment4.params=satz
+comment4.target=java.lang.String\ generierePasswortAusSatz(java.lang.String)
+comment5.params=urlStr
+comment5.target=java.lang.String\ httpGetAnfrage(java.lang.String)
+numComments=6

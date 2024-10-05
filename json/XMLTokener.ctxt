@@ -1,0 +1,28 @@
+#BlueJ class context
+comment0.target=XMLTokener
+comment0.text=\r\n\ The\ XMLTokener\ extends\ the\ JSONTokener\ to\ provide\ additional\ methods\r\n\ for\ the\ parsing\ of\ XML\ texts.\r\n\ @author\ JSON.org\r\n\ @version\ 2015-12-09\r\n
+comment1.params=s
+comment1.target=XMLTokener(java.lang.String)
+comment1.text=\r\n\ Construct\ an\ XMLTokener\ from\ a\ string.\r\n\ @param\ s\ A\ source\ string.\r\n
+comment2.params=
+comment2.target=java.lang.String\ nextCDATA()
+comment2.text=\r\n\ Get\ the\ text\ in\ the\ CDATA\ block.\r\n\ @return\ The\ string\ up\ to\ the\ <code>]]&gt;</code>.\r\n\ @throws\ JSONException\ If\ the\ <code>]]&gt;</code>\ is\ not\ found.\r\n
+comment3.params=
+comment3.target=java.lang.Object\ nextContent()
+comment3.text=\r\n\ Get\ the\ next\ XML\ outer\ token,\ trimming\ whitespace.\ There\ are\ two\ kinds\r\n\ of\ tokens\:\ the\ '<'\ character\ which\ begins\ a\ markup\ tag,\ and\ the\ content\r\n\ text\ between\ markup\ tags.\r\n\r\n\ @return\ \ A\ string,\ or\ a\ '<'\ Character,\ or\ null\ if\ there\ is\ no\ more\r\n\ source\ text.\r\n\ @throws\ JSONException\r\n
+comment4.params=ampersand
+comment4.target=java.lang.Object\ nextEntity(char)
+comment4.text=\r\n\ Return\ the\ next\ entity.\ These\ entities\ are\ translated\ to\ Characters\:\r\n\ \ \ \ \ <code>&amp;\ \ &apos;\ \ &gt;\ \ &lt;\ \ &quot;</code>.\r\n\ @param\ ampersand\ An\ ampersand\ character.\r\n\ @return\ \ A\ Character\ or\ an\ entity\ String\ if\ the\ entity\ is\ not\ recognized.\r\n\ @throws\ JSONException\ If\ missing\ ';'\ in\ XML\ entity.\r\n
+comment5.params=e
+comment5.target=java.lang.String\ unescapeEntity(java.lang.String)
+comment5.text=\r\n\ Unescapes\ an\ XML\ entity\ encoding;\r\n\ @param\ e\ entity\ (only\ the\ actual\ entity\ value,\ not\ the\ preceding\ &\ or\ ending\ ;\r\n\ @return\r\n
+comment6.params=
+comment6.target=java.lang.Object\ nextMeta()
+comment6.text=\r\n\ Returns\ the\ next\ XML\ meta\ token.\ This\ is\ used\ for\ skipping\ over\ <\!...>\r\n\ and\ <?...?>\ structures.\r\n\ @return\ Syntax\ characters\ (<code><\ >\ /\ \=\ \!\ ?</code>)\ are\ returned\ as\r\n\ \ Character,\ and\ strings\ and\ names\ are\ returned\ as\ Boolean.\ We\ don't\ care\r\n\ \ what\ the\ values\ actually\ are.\r\n\ @throws\ JSONException\ If\ a\ string\ is\ not\ properly\ closed\ or\ if\ the\ XML\r\n\ \ is\ badly\ structured.\r\n
+comment7.params=
+comment7.target=java.lang.Object\ nextToken()
+comment7.text=\r\n\ Get\ the\ next\ XML\ Token.\ These\ tokens\ are\ found\ inside\ of\ angle\r\n\ brackets.\ It\ may\ be\ one\ of\ these\ characters\:\ <code>/\ >\ \=\ \!\ ?</code>\ or\ it\r\n\ may\ be\ a\ string\ wrapped\ in\ single\ quotes\ or\ double\ quotes,\ or\ it\ may\ be\ a\r\n\ name.\r\n\ @return\ a\ String\ or\ a\ Character.\r\n\ @throws\ JSONException\ If\ the\ XML\ is\ not\ well\ formed.\r\n
+comment8.params=to
+comment8.target=boolean\ skipPast(java.lang.String)
+comment8.text=\r\n\ Skip\ characters\ until\ past\ the\ requested\ string.\r\n\ If\ it\ is\ not\ found,\ we\ are\ left\ at\ the\ end\ of\ the\ source\ with\ a\ result\ of\ false.\r\n\ @param\ to\ A\ string\ to\ skip\ past.\r\n\ @throws\ JSONException\r\n
+numComments=9

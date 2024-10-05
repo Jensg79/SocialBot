@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.target=AntwortParser
+comment1.params=antwort
+comment1.target=User[]\ zuUserArray(java.lang.String)
+comment1.text=\r\n\ Versucht\ die\ Antwort\ in\ ein\ User\ Array\ zu\ parsen.\r\n\ @param\ antwort\ Die\ Antwort\ des\ SocialBotNet\ Servers\r\n\ @return\ Die\ erstellten\ {@link\ User}\ Objekte\r\n
+comment2.params=antwort
+comment2.target=Post[]\ zuPostArray(java.lang.String)
+comment2.text=\r\n\ Versucht\ die\ Antwort\ in\ ein\ Post\ Array\ zu\ parsen.\r\n\ @param\ antwort\ Die\ Antwort\ des\ SocialBotNet\ Servers\r\n\ @return\ Die\ erstellten\ {@link\ Post}\ Objekte\r\n
+comment3.params=array
+comment3.target=User[]\ zuUserArray(json.JSONArray)
+comment3.text=Private\ Methoden\ *
+comment4.params=obj
+comment4.target=User\ zuUser(json.JSONObject)
+comment5.params=array
+comment5.target=Post[]\ zuPostArray(json.JSONArray)
+comment6.params=obj
+comment6.target=Post\ zuPost(json.JSONObject)
+numComments=7

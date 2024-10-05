@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=HTTPTokener
+comment0.text=\r\n\ The\ HTTPTokener\ extends\ the\ JSONTokener\ to\ provide\ additional\ methods\r\n\ for\ the\ parsing\ of\ HTTP\ headers.\r\n\ @author\ JSON.org\r\n\ @version\ 2015-12-09\r\n
+comment1.params=string
+comment1.target=HTTPTokener(java.lang.String)
+comment1.text=\r\n\ Construct\ an\ HTTPTokener\ from\ a\ string.\r\n\ @param\ string\ A\ source\ string.\r\n
+comment2.params=
+comment2.target=java.lang.String\ nextToken()
+comment2.text=\r\n\ Get\ the\ next\ token\ or\ string.\ This\ is\ used\ in\ parsing\ HTTP\ headers.\r\n\ @throws\ JSONException\r\n\ @return\ A\ String.\r\n
+numComments=3

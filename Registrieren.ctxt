@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Registrieren
+comment0.text=\n\ Beschreiben\ Sie\ hier\ die\ Klasse\ Registrieren.\n\ \n\ @author\ (Ihr\ Name)\ \n\ @version\ (eine\ Versionsnummer\ oder\ ein\ Datum)\n
+comment1.params=
+comment1.target=Registrieren()
+comment1.text=\n\ Konstruktor\ f\u00FCr\ Objekte\ der\ Klasse\ Registrieren\n
+comment2.params=username\ passwort
+comment2.target=void\ nutzerAnmelden(java.lang.String,\ java.lang.String)
+numComments=3

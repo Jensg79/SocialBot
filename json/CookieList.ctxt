@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=CookieList
+comment0.text=\r\n\ Convert\ a\ web\ browser\ cookie\ list\ string\ to\ a\ JSONObject\ and\ back.\r\n\ @author\ JSON.org\r\n\ @version\ 2015-12-09\r\n
+comment1.params=string
+comment1.target=JSONObject\ toJSONObject(java.lang.String)
+comment1.text=\r\n\ Convert\ a\ cookie\ list\ into\ a\ JSONObject.\ A\ cookie\ list\ is\ a\ sequence\r\n\ of\ name/value\ pairs.\ The\ names\ are\ separated\ from\ the\ values\ by\ '\='.\r\n\ The\ pairs\ are\ separated\ by\ ';'.\ The\ names\ and\ the\ values\r\n\ will\ be\ unescaped,\ possibly\ converting\ '+'\ and\ '%'\ sequences.\r\n\r\n\ To\ add\ a\ cookie\ to\ a\ cookie\ list,\r\n\ cookielistJSONObject.put(cookieJSONObject.getString("name"),\r\n\ \ \ \ \ cookieJSONObject.getString("value"));\r\n\ @param\ string\ \ A\ cookie\ list\ string\r\n\ @return\ A\ JSONObject\r\n\ @throws\ JSONException\r\n
+comment2.params=jo
+comment2.target=java.lang.String\ toString(JSONObject)
+comment2.text=\r\n\ Convert\ a\ JSONObject\ into\ a\ cookie\ list.\ A\ cookie\ list\ is\ a\ sequence\r\n\ of\ name/value\ pairs.\ The\ names\ are\ separated\ from\ the\ values\ by\ '\='.\r\n\ The\ pairs\ are\ separated\ by\ ';'.\ The\ characters\ '%',\ '+',\ '\=',\ and\ ';'\r\n\ in\ the\ names\ and\ values\ are\ replaced\ by\ "%hh".\r\n\ @param\ jo\ A\ JSONObject\r\n\ @return\ A\ cookie\ list\ string\r\n\ @throws\ JSONException\r\n
+numComments=3
