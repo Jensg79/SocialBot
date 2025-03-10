@@ -7,14 +7,13 @@ import java.util.*;
 
 public class SpeichernNutzer {
 
-    private static final String DB_URL = "jdbc:postgresql://elixir-hawk-3221.8nj.gcp-europe-west1.cockroachlabs.cloud:26257/benutzerdatenbank?sslmode=verify-full";
+    private static final String DB_URL = "jdbc:postgresql://elixir-hawk-3221.8nj.gcp-europe-west1.cockroachlabs.cloud:26257/benutzer?sslmode=verify-full";
     private static final String DB_USER = "gundelwein";
-    private static final String DB_PASSWORD = "NApeDKj1pCB2a-yUM608Og"; // Passwort, wenn gesetzt
+    private static final String DB_PASSWORD = "NApeDKj1pCB2a-yUM608Og";
     private static final Logger LOGGER = Logger.getLogger(SpeichernNutzer.class.getName());
 
-    public SpeichernNutzer() {
-        // Konstruktor
-    }
+    // Konstruktor
+    public SpeichernNutzer() {}
 
     // Methode, um eine Datenbankverbindung zu erstellen
     private Connection getConnection() throws SQLException {
@@ -35,7 +34,7 @@ public class SpeichernNutzer {
             LOGGER.log(Level.INFO, "Benutzer erfolgreich gespeichert!");
 
         } catch (SQLException e) {
-            LOGGER.log(Level.SEVERE, "Fehler beim Speichern des Nutzers", e);
+            LOGGER.log(Level.SEVERE, "Fehler beim Speichern des Nutzers: {0}", e.getMessage());
         }
     }
 
@@ -51,7 +50,7 @@ public class SpeichernNutzer {
         speichernNutzer(username, gehashtesPasswort);
     }
 
-    // Methode zum Hashen des Passworts
+    // Methode zum Hashen des Passworts mit SHA-256
     private String hashPasswort(String passwort) {
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-256");
@@ -63,7 +62,7 @@ public class SpeichernNutzer {
             }
             return sb.toString();
         } catch (NoSuchAlgorithmException e) {
-            LOGGER.log(Level.SEVERE, "Fehler beim Hashen des Passworts", e);
+            LOGGER.log(Level.SEVERE, "Fehler beim Hashen des Passworts: {0}", e.getMessage());
             return null;
         }
     }
@@ -77,7 +76,11 @@ public class SpeichernNutzer {
             return false;
         }
 
-        boolean istKorrekt = gehashtesEingegebenesPasswort.equals(gespeichertesHashPasswort);
+        // Timing-sicherer Vergleich der gehashten Passwörter
+        boolean istKorrekt = MessageDigest.isEqual(
+            gehashtesEingegebenesPasswort.getBytes(), 
+            gespeichertesHashPasswort.getBytes()
+        );
 
         if (istKorrekt) {
             LOGGER.log(Level.INFO, "Passwort korrekt!");
@@ -87,7 +90,8 @@ public class SpeichernNutzer {
 
         return istKorrekt;
     }
-// Neue Methode: Abrufen von Nutzernamen und Passwörtern
+
+    // Methode: Abrufen von Nutzernamen und Passwörtern
     public List<String[]> getNutzernamenUndPasswoerter() {
         String sql = "SELECT username, passwort FROM benutzer";
         List<String[]> nutzerListe = new ArrayList<>();
@@ -100,13 +104,12 @@ public class SpeichernNutzer {
             while (rs.next()) {
                 String username = rs.getString("username");
                 String passwort = rs.getString("passwort");
-                nutzerListe.add(new String[] {username, passwort});
+                nutzerListe.add(new String[] { username, passwort });
             }
         } catch (SQLException e) {
-            LOGGER.log(Level.SEVERE, "Fehler beim Abrufen der Nutzernamen und Passwörter", e);
+            LOGGER.log(Level.SEVERE, "Fehler beim Abrufen der Nutzernamen und Passwörter: {0}", e.getMessage());
         }
         
         return nutzerListe;
     }
-
 }

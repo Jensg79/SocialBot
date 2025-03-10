@@ -4,26 +4,34 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import org.json.JSONObject;
 import org.json.JSONArray;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.sql.*;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.logging.ConsoleHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Bots {
-
     private static final String DB_URL = "jdbc:postgresql://elixir-hawk-3221.8nj.gcp-europe-west1.cockroachlabs.cloud:26257/benutzerdatenbank?sslmode=verify-full";
     private static final String DB_USER = "gundelwein";
-    private static final String DB_PASSWORD = System.getenv("DB_PASSWORD");  // Passwort über Umgebungsvariable laden
+    private static final String DB_PASSWORD = System.getenv("DB_PASSWORD"); // Passwort über Umgebungsvariable laden
     private static final Logger LOGGER = Logger.getLogger(Bots.class.getName());
+    
+
+    // Konstanten für die URLs
+    private static final String ZITAT_SERVICE_URL = "https://api.zitat-service.de";
+    private static final String RANDOM_USER_URL = "https://randomuser.me/api/";
 
     private final NetzwerkZugriff socialbotnet;
     private final NetzwerkZugriff socialbotnetName;
 
     public Bots() {
-        this.socialbotnet = new NetzwerkZugriff("https://api.zitat-service.de");
-        this.socialbotnetName = new NetzwerkZugriff("https://randomuser.me/api/");
+        if (DB_PASSWORD == null) {
+            LOGGER.log(Level.SEVERE, "Datenbankpasswort ist nicht gesetzt. Bitte setze die Umgebungsvariable 'DB_PASSWORD'.");
+        }
+        this.socialbotnet = new NetzwerkZugriff(ZITAT_SERVICE_URL);
+        this.socialbotnetName = new NetzwerkZugriff(RANDOM_USER_URL);
     }
 
     // Methode zur Generierung eines neuen Passworts
@@ -40,8 +48,8 @@ public class Bots {
 
             return passcode;
         } catch (Exception e) {
-            LOGGER.log(Level.SEVERE, "Fehler beim Erzeugen eines neuen Spruchs", e);
-            return "Es ist ein Fehler aufgetreten!";
+            LOGGER.log(Level.SEVERE, "Fehler beim Erzeugen eines neuen Passworts", e);
+            return "Fehler beim Erzeugen des Passworts!";
         }
     }
 
@@ -59,7 +67,7 @@ public class Bots {
             return username;
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, "Fehler beim Erzeugen eines neuen Nutzernamens", e);
-            return "Es ist ein Fehler aufgetreten!";
+            return "Fehler beim Erzeugen des Nutzernamens!";
         }
     }
 
@@ -69,14 +77,17 @@ public class Bots {
         StringBuilder passwort = new StringBuilder();
 
         for (String wort : woerter) {
-            if (wort.matches("[.,!?;:]")) {
-                passwort.append(wort);
-            } else if (!wort.isEmpty() && passwort.length() < 8) {
+            if (!wort.matches("[.,!?;:]") && !wort.isEmpty() && passwort.length() < 8) {
                 passwort.append(wort.charAt(0));
             }
             if (passwort.length() >= 8) {
                 break;
             }
+        }
+
+        // Auffüllen, falls das Passwort weniger als 8 Zeichen hat
+        while (passwort.length() < 8) {
+            passwort.append('x');
         }
 
         return passwort.toString();
@@ -92,20 +103,19 @@ public class Bots {
             connection.setConnectTimeout(5000);
             connection.setReadTimeout(5000);
 
-            BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-            StringBuilder content = new StringBuilder();
-            String line;
-            while ((line = in.readLine()) != null) {
-                content.append(line);
-            }
+            try (BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()))) {
+                StringBuilder content = new StringBuilder();
+                String line;
+                while ((line = in.readLine()) != null) {
+                    content.append(line);
+                }
 
-            in.close();
-            return content.toString();
+                return content.toString();
+            }
         } finally {
             if (connection != null) {
                 connection.disconnect();
             }
         }
     }
-    
 }

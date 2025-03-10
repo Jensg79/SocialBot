@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="af064169-d3f2-4041-8d7c-e790be8b37c2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Bots.class" beforeDir="false" afterPath="$PROJECT_DIR$/Bots.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bots.java" beforeDir="false" afterPath="$PROJECT_DIR$/Bots.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BotsGui$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/BotsGui$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BotsGui$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/BotsGui$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BotsGui$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/BotsGui$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BotsGui$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/BotsGui$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BotsGui.class" beforeDir="false" afterPath="$PROJECT_DIR$/BotsGui.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BotsGui.ctxt" beforeDir="false" afterPath="$PROJECT_DIR$/BotsGui.ctxt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BotsGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/BotsGui.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NetzwerkZugriff.class" beforeDir="false" afterPath="$PROJECT_DIR$/NetzwerkZugriff.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NetzwerkZugriff.ctxt" beforeDir="false" afterPath="$PROJECT_DIR$/NetzwerkZugriff.ctxt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NetzwerkZugriff.java" beforeDir="false" afterPath="$PROJECT_DIR$/NetzwerkZugriff.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NutzerSteuerung.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NutzerSteuerung.ctxt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NutzerSteuerung.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Registrieren.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Registrieren.ctxt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Registrieren.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SocialBot.class" beforeDir="false" afterPath="$PROJECT_DIR$/SocialBot.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SocialBot.ctxt" beforeDir="false" afterPath="$PROJECT_DIR$/SocialBot.ctxt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SocialBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/SocialBot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SpeichernNutzer.class" beforeDir="false" afterPath="$PROJECT_DIR$/SpeichernNutzer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SpeichernNutzer.java" beforeDir="false" afterPath="$PROJECT_DIR$/SpeichernNutzer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/AntwortParser.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/AntwortParser.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/NetzwerkZugriff.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/NetzwerkZugriff.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/Post.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/Post.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/SocialBot.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/SocialBot.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/User.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/User.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/constant-values.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/constant-values.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/logfile.txt" beforeDir="false" afterPath="$PROJECT_DIR$/doc/logfile.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/package-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/doc/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/doc/stylesheet.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.bluej" beforeDir="false" afterPath="$PROJECT_DIR$/package.bluej" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user.class" beforeDir="false" afterPath="$PROJECT_DIR$/user.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user.ctxt" beforeDir="false" afterPath="$PROJECT_DIR$/user.ctxt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user.java" beforeDir="false" afterPath="$PROJECT_DIR$/user.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 3
+}]]></component>
+  <component name="ProjectId" id="2u815lDmjExOIzedFGNJjkIeh96" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/jens/pCloud Drive/Test_Schule/Informatik/SocialBotVorlage",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.25659.59" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.25659.59" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="af064169-d3f2-4041-8d7c-e790be8b37c2" name="Changes" comment="" />
+      <created>1741615205493</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1741615205493</updated>
+      <workItem from="1741615206557" duration="42000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

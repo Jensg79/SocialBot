@@ -15,182 +15,164 @@ public class BotsGui extends JFrame {
 
     // Konstruktor für die GUI
     public BotsGui() {
-        // Fenstername setzen
         super("Die BotArmee für Social Media");
         this.socialbotnet = new NetzwerkZugriff("https://socialbotnet-ajvb.onrender.com");
-
-        // SocialBot-Objekt
         bot1 = new SocialBot();
 
-        // Modernes Design: Hellgrauer Hintergrund, dunklere Schrift
-        getContentPane().setBackground(new Color(245, 245, 245)); // Heller, neutraler Hintergrund
+        // Modernes Design und Layout
+        initComponents();
+        setWindowProperties();
+
+        // Umleiten der Standardausgabe in die TextArea
+        redirectSystemStreams();
+    }
+
+    // Initialisierung der GUI-Komponenten
+    private void initComponents() {
+        getContentPane().setBackground(new Color(245, 245, 245)); // Heller Hintergrund
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(10, 10, 10, 10); // Mehr Platz zwischen den Komponenten
+        gbc.insets = new Insets(10, 10, 10, 10);
         gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.anchor = GridBagConstraints.WEST;
 
-        // Standardfont für alle Komponenten
         Font standardFont = new Font("SansSerif", Font.PLAIN, 16);
+        Color buttonColor = new Color(51, 153, 255);  // Blau für Buttons
+        Color textFieldColor = new Color(224, 224, 224);
+        Color borderColor = new Color(180, 180, 180);
 
-        // Farben für Buttons und Textfelder
-        Color buttonColor = new Color(51, 153, 255);  // Leuchtendes Blau für Buttons
-        Color textFieldColor = new Color(224, 224, 224);  // Leichtes Grau für Textfelder
-        Color borderColor = new Color(180, 180, 180);  // Dezentes Grau für Ränder
-
-        // Label und erstes Textfeld (Anzahl der Bots)
+        // Eingabe Anzahl der Bots
         JLabel label1 = new JLabel("Anzahl der Bots:");
         label1.setFont(standardFont);
-        intField = new JTextField(10);
-        intField.setFont(standardFont);
-        intField.setBackground(textFieldColor);
-        intField.setBorder(BorderFactory.createLineBorder(borderColor));
-
+        intField = createTextField(standardFont, textFieldColor, borderColor);
         gbc.gridx = 0;
         gbc.gridy = 0;
         add(label1, gbc);
-
         gbc.gridx = 1;
         add(intField, gbc);
 
-        // Erster Button (Erzeuge)
-        JButton button1 = new JButton("Erzeuge");
-        button1.setFont(standardFont);
-        button1.setBackground(buttonColor);
-        button1.setForeground(Color.WHITE);  // Weißer Text
-        button1.setFocusPainted(false);  // Entferne den Fokusrahmen
-        button1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                int botsAnzahl = Integer.parseInt(intField.getText());
-                bot1.armeeErzeugen(botsAnzahl);
-                String antwort = socialbotnet.GETAnfrageSenden("/api/users");
-                showJsonResponse(antwort);
-            }
-        });
-
+        // Button zum Erzeugen der Bots
+        JButton button1 = createButton("Erzeuge", standardFont, buttonColor);
+        button1.addActionListener(e -> handleBotCreation());
         gbc.gridx = 2;
         add(button1, gbc);
 
-        // Label und zweites Textfeld (HashTag)
+        // Eingabe für HashTag
         JLabel label2 = new JLabel("HashTag:");
         label2.setFont(standardFont);
-        stringField = new JTextField(10);
-        stringField.setFont(standardFont);
-        stringField.setBackground(textFieldColor);
-        stringField.setBorder(BorderFactory.createLineBorder(borderColor));
-
+        stringField = createTextField(standardFont, textFieldColor, borderColor);
         gbc.gridx = 0;
         gbc.gridy = 1;
         add(label2, gbc);
-
         gbc.gridx = 1;
         add(stringField, gbc);
 
-        // Zweiter Button (Like)
-        JButton button2 = new JButton("Like");
-        button2.setFont(standardFont);
-        button2.setBackground(buttonColor);
-        button2.setForeground(Color.WHITE);
-        button2.setFocusPainted(false);
-        button2.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String eingabe = stringField.getText();
-                bot1.hashTagLiken(eingabe);
-                String antwort = "Alle Posts mit dem Hashtag " + eingabe + " wurden geliked!";
-                displayJsonResponseLikes(antwort);
-            }
-        });
-
+        // Button zum Liken von Posts mit dem Hashtag
+        JButton button2 = createButton("Like", standardFont, buttonColor);
+        button2.addActionListener(e -> handleHashTagLike());
         gbc.gridx = 2;
         add(button2, gbc);
 
-        // Posten-Bereich (Label, Textfeld, Button)
+        // Eingabe für Post
         JLabel labelpost = new JLabel("Posten:");
         labelpost.setFont(standardFont);
-        postField = new JTextField(10);
-        postField.setFont(standardFont);
-        postField.setBackground(textFieldColor);
-        postField.setBorder(BorderFactory.createLineBorder(borderColor));
-
+        postField = createTextField(standardFont, textFieldColor, borderColor);
         gbc.gridx = 0;
         gbc.gridy = 2;
         add(labelpost, gbc);
-
         gbc.gridx = 1;
         add(postField, gbc);
 
-        // Dritter Button (Speichern)
-        JButton button3 = new JButton("Speichern");
-        button3.setFont(standardFont);
-        button3.setBackground(buttonColor);
-        button3.setForeground(Color.WHITE);
-        button3.setFocusPainted(false);
-        button3.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String post = postField.getText();
-                bot1.botsPosten(post);
-                String antwort = "Der Post '" + post + "' wurde erfolgreich von allen Bots erstellt!";
-                displayJsonResponseLikes(antwort);
-            }
-        });
-
+        // Button zum Posten von Nachrichten
+        JButton button3 = createButton("Speichern", standardFont, buttonColor);
+        button3.addActionListener(e -> handlePostCreation());
         gbc.gridx = 2;
         add(button3, gbc);
 
-        // JSON-Antwortbereich (TextArea mit Scrollbar)
+        // JSON-Antwortbereich
         jsonResponseArea = new JTextArea(10, 30);
-        jsonResponseArea.setFont(new Font("Monospaced", Font.PLAIN, 14)); // Monospace für JSON-Text
+        jsonResponseArea.setFont(new Font("Monospaced", Font.PLAIN, 14));
         jsonResponseArea.setEditable(false);
         jsonResponseArea.setBorder(BorderFactory.createLineBorder(borderColor));
-
         JScrollPane scrollPane = new JScrollPane(jsonResponseArea);
         scrollPane.setBorder(BorderFactory.createEmptyBorder());
-
         gbc.gridx = 0;
         gbc.gridy = 3;
         gbc.gridwidth = 3;
         add(scrollPane, gbc);
-        
-        // Umleiten der Standardausgabe in die TextArea
-        redirectSystemStreams();
+    }
 
-        // Grundlegende Fenstereinstellungen
-        setSize(600, 400); // Größerer Raum für die moderne Darstellung
+    // Methode zum Erstellen eines Textfeldes
+    private JTextField createTextField(Font font, Color bgColor, Color borderColor) {
+        JTextField textField = new JTextField(10);
+        textField.setFont(font);
+        textField.setBackground(bgColor);
+        textField.setBorder(BorderFactory.createLineBorder(borderColor));
+        return textField;
+    }
+
+    // Methode zum Erstellen eines Buttons
+    private JButton createButton(String text, Font font, Color bgColor) {
+        JButton button = new JButton(text);
+        button.setFont(font);
+        button.setBackground(bgColor);
+        button.setForeground(Color.WHITE);
+        button.setFocusPainted(false);
+        return button;
+    }
+
+    // Grundeinstellungen für das Fenster
+    private void setWindowProperties() {
+        setSize(600, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
     }
 
-        // Methode zum Umleiten der Standardausgabe (System.out und System.err)
+    // Methode zum Umleiten der Standardausgabe in die JTextArea
     private void redirectSystemStreams() {
         OutputStream out = new OutputStream() {
             @Override
             public void write(int b) {
-                // Einzelne Bytes in die TextArea schreiben
                 jsonResponseArea.append(String.valueOf((char) b));
-                jsonResponseArea.setCaretPosition(jsonResponseArea.getDocument().getLength()); // Scrollt automatisch nach unten
+                jsonResponseArea.setCaretPosition(jsonResponseArea.getDocument().getLength()); // Automatisches Scrollen
             }
         };
-
-        PrintStream ps = new PrintStream(out);
-        System.setOut(ps);
-        System.setErr(ps);
+        System.setOut(new PrintStream(out));
+        System.setErr(new PrintStream(out));
     }
-    
-    // Beispielmethoden zum Anzeigen von JSON-Antworten
+
+    // Methode zur Verarbeitung der Bot-Erstellung
+    private void handleBotCreation() {
+        try {
+            int botsAnzahl = Integer.parseInt(intField.getText());
+            bot1.armeeErzeugen(botsAnzahl);
+            String antwort = socialbotnet.GETAnfrageSenden("/api/users");
+            showJsonResponse(antwort);
+        } catch (NumberFormatException e) {
+            showJsonResponse("Bitte eine gültige Zahl für die Anzahl der Bots eingeben.");
+        }
+    }
+
+    // Methode zur Verarbeitung von Like-Aktionen für einen HashTag
+    private void handleHashTagLike() {
+        String eingabe = stringField.getText();
+        bot1.hashTagLiken(eingabe);
+        showJsonResponse("Alle Posts mit dem Hashtag " + eingabe + " wurden geliked!");
+    }
+
+    // Methode zur Verarbeitung des Postens von Nachrichten
+    private void handlePostCreation() {
+        String post = postField.getText();
+        bot1.botsPosten(post);
+        showJsonResponse("Der Post '" + post + "' wurde erfolgreich von allen Bots erstellt!");
+    }
+
+    // Methode zum Anzeigen von JSON-Antworten
     private void showJsonResponse(String response) {
-        jsonResponseArea.setText(response);
-    }
-
-    private void displayJsonResponseLikes(String response) {
         jsonResponseArea.setText(response);
     }
 
     // Main-Methode zum Starten der GUI
     public static void main(String[] args) {
-        // Nutzen von Nimbus Look-and-Feel für modernes Design (optional)
         try {
             for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -202,6 +184,6 @@ public class BotsGui extends JFrame {
             e.printStackTrace();
         }
 
-        new BotsGui();  // Erstellen des GUI-Fensters
+        new BotsGui();
     }
 }

@@ -8,15 +8,15 @@ import java.util.*;
  * @author J.Gundelwein 
  * @version 1.0
  */
-public class user {
+public class User {
     private AntwortParser antwortparser;
     private NetzwerkZugriff socialbotnet;
 
     /**
-     * Konstruktor für Objekte der Klasse user.
+     * Konstruktor für Objekte der Klasse Registrieren.
      */
-    public user() {
-        this.socialbotnet = new NetzwerkZugriff("https://socialbotnet-o1cy.onrender.com");
+    public User() {
+        this.socialbotnet = new NetzwerkZugriff("https://socialbotnet-ajvb.onrender.com");
     }
 
     /**
@@ -85,18 +85,14 @@ public class user {
      * 
      * @param username Der Benutzername des Nutzers, dessen Pinnwand angezeigt werden soll.
      */
-
-
-    
-    public String pinnwandEinesNutzers(String username) {
+    public void pinnwandEinesNutzers(String username) {
         try {
             // Senden der GET-Anfrage.
             String antwort = socialbotnet.GETAnfrageSenden("/api/pinnwand/" + username);
             // Optional: Weiterverarbeitung der Antwort, wenn erforderlich.
-            return antwort;
         } catch (Exception e) {
-        System.err.println("Fehler beim Abrufen der Pinnwand: " + e.getMessage());
-        return null;
+            // Fehlerbehandlung bei Problemen mit der Anfrage.
+            System.err.println("Fehler beim Abrufen der Pinnwand von " + username + ": " + e.getMessage());
         }
     }
 
