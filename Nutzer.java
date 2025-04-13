@@ -8,14 +8,14 @@ import java.util.*;
  * @author J.Gundelwein 
  * @version 1.0
  */
-public class user {
+public class Nutzer {
     private AntwortParser antwortparser;
     private NetzwerkZugriff socialbotnet;
 
     /**
      * Konstruktor für Objekte der Klasse user.
      */
-    public user() {
+    public Nutzer() {
         this.socialbotnet = new NetzwerkZugriff("https://socialbotnet-hg69.onrender.com");
     }
 

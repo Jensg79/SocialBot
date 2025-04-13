@@ -8,13 +8,13 @@ public class SocialBot {
     private NetzwerkZugriff socialbotnet;
     private Bots bot;
     private SpeichernNutzer speichernNutzer;
-    private user user;
+    private Nutzer user;
 
     /**
      * Adresse: https://socialbotnet-o1cy.onrender.com
      */
     public SocialBot() {
-        this.socialbotnet = new NetzwerkZugriff("https://socialbotnet-o1cy.onrender.com");
+        this.socialbotnet = new NetzwerkZugriff("https://socialbotnet-hg69.onrender.com");
     }
 
     public SocialBot(String usernameNeu, String passwordNeu) {
@@ -95,7 +95,7 @@ public class SocialBot {
             System.out.println("Der neue Nutzer hat folgendes Passwort: " + neuesPasswort);
             speichernNutzer = new SpeichernNutzer();
             speichernNutzer.speichernNutzer(neuerNutzername, neuesPasswort);
-            user = new user();
+            user = new Nutzer();
             user.nutzerAnmelden(neuerNutzername, neuesPasswort);
         }
     }
