@@ -16,7 +16,7 @@ public class SpeichernNutzer {
     public SpeichernNutzer() {}
 
     // Methode, um eine Datenbankverbindung zu erstellen
-    private Connection getConnection() throws SQLException {
+   public Connection getConnection() throws SQLException {
         return DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
     }
 

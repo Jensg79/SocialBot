@@ -13,7 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Bots {
-    private static final String DB_URL = "jdbc:postgresql://elixir-hawk-3221.8nj.gcp-europe-west1.cockroachlabs.cloud:26257/benutzerdatenbank?sslmode=verify-full";
+    private static final String DB_URL = "jdbc:postgresql://elixir-hawk-3221.8nj.gcp-europe-west1.cockroachlabs.cloud:26257/benutzer?sslmode=verify-full";
     private static final String DB_USER = "gundelwein";
     private static final String DB_PASSWORD ="Gm73bJtiWLVBoXsry_weJw"; // Passwort über Umgebungsvariable laden
     private static final Logger LOGGER = Logger.getLogger(Bots.class.getName());

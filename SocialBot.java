@@ -1,6 +1,10 @@
 import org.json.JSONObject;
 import org.json.JSONArray;
 import java.util.*;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+import java.io.IOException;
+import org.json.JSONException;
 
 public class SocialBot {
     private String username;
@@ -14,46 +18,52 @@ public class SocialBot {
      * Adresse: https://socialbotnet-o1cy.onrender.com
      */
     public SocialBot() {
-        this.socialbotnet = new NetzwerkZugriff("https://socialbotnet-hg69.onrender.com");
+        this.socialbotnet = new NetzwerkZugriff("https://socialbotnet-i635.onrender.com");
     }
 
     public SocialBot(String usernameNeu, String passwordNeu) {
         this.username = usernameNeu;
         this.password = passwordNeu;
-        this.socialbotnet = new NetzwerkZugriff("https://socialbotnet-ajvb.onrender.com");
+        this.socialbotnet = new NetzwerkZugriff("https://socialbotnet-i635.onrender.com");
     }
 
-    public void hashTagLiken(String neuerHashTag) {
-        try {
-            // Senden der GET-Anfrage und Speichern der Antwort als String.
-            String antwort = socialbotnet.GETAnfrageSenden("/api/posts");
+public void hashTagLiken(String neuerHashTag) {
+    // Regulärer Ausdruck für exakten Hashtag (z.?B. #java, aber nicht #javascript)
+    Pattern hashtagPattern = Pattern.compile("\\B" + Pattern.quote(neuerHashTag) + "\\b");
 
-            // Parsen der Antwort als JSON-Array.
-            JSONArray posts = new JSONArray(antwort);
+    try {
+        // Senden der GET-Anfrage und Speichern der Antwort als String
+        String antwort = socialbotnet.GETAnfrageSenden("/api/posts");
 
-            // Liste, um Post-IDs zu speichern.
-            List<Integer> gefiltertePostIds = new ArrayList<>();
+        // Leere oder fehlerhafte Antwort prüfen
+        if (antwort == null || antwort.isEmpty()) {
+            System.err.println("Leere Antwort vom Server erhalten.");
+            return;
+        }
 
-            // Alle Posts durchlaufen und nach dem Hashtag filtern.
-            for (int i = 0; i < posts.length(); i++) {
-                JSONObject post = posts.getJSONObject(i);
-                String content = post.getString("message");
-                int postId = post.getInt("id");
+        // Parsen der Antwort als JSON-Array
+        JSONArray posts = new JSONArray(antwort);
 
-                if (content.contains(neuerHashTag)) {
-                    gefiltertePostIds.add(postId);
-                }
-            }
+        // Alle Posts prüfen
+        for (int i = 0; i < posts.length(); i++) {
+            JSONObject post = posts.getJSONObject(i);
+            String content = post.optString("message", "");
+            int postId = post.optInt("id", -1);
 
-            // Für alle gefilterten Posts die Methode liken aufrufen.
-            for (int postId : gefiltertePostIds) {
+            // Wenn Post-ID gültig ist und Hashtag gefunden wurde ? liken
+            Matcher matcher = hashtagPattern.matcher(content);
+            if (postId >= 0 && matcher.find()) {
                 liken(postId);
             }
-
-        } catch (Exception e) {
-            System.err.println("Fehler beim Abfragen der Posts: " + e.getMessage());
         }
+
+    } catch (JSONException e) {
+        System.err.println("Fehler beim Verarbeiten der JSON-Daten: " + e.getMessage());
+    } catch (Exception e) {
+        System.err.println("Unerwarteter Fehler: " + e.getClass().getSimpleName() + " – " + e.getMessage());
+        e.printStackTrace();
     }
+}
 
     public void posten(String nachricht) {
         try {

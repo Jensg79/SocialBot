@@ -1,8 +1,8 @@
 #BlueJ class context
-comment0.target=user
+comment0.target=Nutzer
 comment0.text=\n\ Beschreiben\ Sie\ hier\ die\ Klasse\ Registrieren.\n\ \n\ @author\ J.Gundelwein\ \n\ @version\ 1.0\n
 comment1.params=
-comment1.target=user()
+comment1.target=Nutzer()
 comment1.text=\n\ Konstruktor\ f\u00FCr\ Objekte\ der\ Klasse\ user.\n
 comment2.params=username\ passwort
 comment2.target=void\ nutzerAnmelden(java.lang.String,\ java.lang.String)

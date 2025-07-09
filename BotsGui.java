@@ -12,7 +12,7 @@ public class BotsGui extends JFrame {
 
     public BotsGui() {
         super("Bot-Armee für Social Media");
-        this.socialbotnet = new NetzwerkZugriff("https://socialbotnet-hg69.onrender.com");
+        this.socialbotnet = new NetzwerkZugriff("https://socialbotnet-i635.onrender.com");
         bot1 = new SocialBot();
 
         initComponents();

@@ -16,7 +16,7 @@ public class user {
      * Konstruktor für Objekte der Klasse user.
      */
     public user() {
-        this.socialbotnet = new NetzwerkZugriff("https://socialbotnet-hg69.onrender.com");
+        this.socialbotnet = new NetzwerkZugriff("https://socialbotnet-i635.onrender.com");
     }
 
     /**
